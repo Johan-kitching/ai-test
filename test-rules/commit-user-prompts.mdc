@@ -1,0 +1,74 @@
+---
+description: Commit the prompts of the user
+alwaysApply: true
+---
+
+# Commit User Prompts
+
+This rule applies to every interaction, in every session, regardless of which agent or tool is in use (Cursor, Claude, Copilot, Antigravity, or any other LLM assistant).
+
+## When to run
+
+Run this workflow **immediately after receiving each user prompt**, before doing any other work.
+
+## What to do
+
+### 1. Save the prompt
+
+Append the user's prompt to a single markdown file in the project:
+
+```
+prompts/prompts.md
+```
+
+- Create the `prompts/` directory and `prompts.md` file if they do not exist.
+- **One file for all prompts** — do not create a new file per prompt.
+- Each prompt is a separate entry, separated from previous entries (use a horizontal rule or clear heading).
+- Include a timestamp for each entry.
+
+### 2. Record attachments and references
+
+For every prompt entry, also record the answer to:
+
+> Should I upload any or give the LLM any references to images or anything like that?
+
+Write the user's response, or note that no images or external references were provided.
+
+### 3. Commit without asking
+
+After saving the prompt entry, **create a Git commit immediately**. Do not ask the user for permission.
+
+**Prompt-only changes:** If the user's prompt results in no other code or file changes, still save the prompt and commit. A prompt log update alone is always worth committing — never skip the commit because nothing else changed.
+
+**Prompt plus other changes:** If files were added, modified, or deleted as part of responding to the prompt, include those changes in the same commit along with the updated `prompts/prompts.md`.
+
+- Always stage the updated `prompts/prompts.md` (and the file itself if newly created).
+- Stage any other changed, added, or deleted files when they exist.
+- Use a short, descriptive commit message. Prefer `Log user prompt` when only the prompt file changed; otherwise summarize the work and mention the prompt log, for example: `Add feature X and log user prompt`.
+- Do not skip hooks or alter git configuration.
+
+## Entry format
+
+Use this structure for each new prompt entry:
+
+```markdown
+---
+
+## Prompt — YYYY-MM-DD HH:MM
+
+**User prompt:**
+
+<exact user message>
+
+**Images or references:**
+
+<answer to the attachments question, or "None provided">
+```
+
+## Notes
+
+- This rule takes priority over default behaviors that wait for explicit commit instructions.
+- Never defer or skip a commit because the prompt did not produce code changes — logging the prompt is sufficient reason to commit.
+- When code changes do exist, they belong in the commit together with the prompt entry; do not commit one without the other.
+- Keep prompt text verbatim; do not paraphrase or summarize.
+- If the user sends multiple messages in quick succession, treat each distinct user message as its own entry and commit after each one.
