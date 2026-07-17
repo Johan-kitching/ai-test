@@ -4,7 +4,24 @@ Instructions for candidates completing this exercise.
 
 ## Setup
 
-### 1. Create a feature branch
+### 1. Make sure Git is initialized
+
+Confirm that this directory is a Git repository and that you can commit and push changes:
+
+```bash
+git status
+git remote -v
+```
+
+If Git has not been initialized yet, run:
+
+```bash
+git init
+```
+
+Do not push anything until you are fully complete with the instructions.
+
+### 2. Create a feature branch
 
 Create a new branch named after yourself:
 
@@ -14,11 +31,11 @@ git checkout -b feature/your-name
 
 Replace `your-name` with your actual name (e.g. `feature/jane-doe`).
 
-### 2. Follow the instructions you receive
+### 3. Follow the instructions you receive
 
 Listen to and follow the instructions provided to you during the exercise.
 
-### 3. Install the test rule in your LLM or IDE
+### 4. Install the test rule in your LLM or IDE
 
 Copy the rule file from the **test rules** section of this repo:
 
@@ -35,7 +52,7 @@ Move a copy into whatever LLM or IDE you use, so it is **always applied** on eve
 
 The rule tells the AI to log every user prompt to `prompts/prompts.md` and commit the log automatically.
 
-### 4. Test that the rule is working
+### 5. Test that the rule is working
 
 After the rule is in place, send any prompt to your LLM or instruction AI (for example: “Say hello”).
 
@@ -43,7 +60,7 @@ After the rule is in place, send any prompt to your LLM or instruction AI (for e
 
 If that folder and file appear after your test prompt, the rule is installed correctly.
 
-### 5. Create a pull request into `master`
+### 6. Create a pull request into `master`
 
 After you have completed all instructions, open a pull request from your feature branch into `master`:
 
@@ -52,4 +69,3 @@ git push -u origin feature/your-name
 gh pr create --base master --title "Complete candidate exercise" --body "Completed all setup and exercise instructions."
 ```
 
-Replace `feature/your-name` with your branch name. If you do not use the GitHub CLI, create the PR through the GitHub web UI instead, targeting `master` as the base branch.
