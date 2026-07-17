@@ -95,3 +95,43 @@ Treat every solution as if it will be reviewed by an experienced senior software
 **Images or references:**
 
 None provided
+
+
+---
+
+## Prompt — 2026-07-17 10:27
+
+**User prompt:**
+
+Create a complete browser-based strategy board game using only HTML, CSS, and vanilla JavaScript.
+
+The game should have the following mechanics:
+
+* Display an 8×8 board with alternating light and dark squares.
+* Only the dark squares are playable.
+* Two players take turns.
+* Each player starts with 12 pieces positioned on the playable squares of the three rows closest to them.
+* Pieces move diagonally forward by one playable square into an empty square.
+* If an opposing piece is diagonally adjacent and the square immediately beyond it is empty, the opposing piece must be captured by jumping over it.
+* When a capture is available, the player must make a capturing move.
+* If, after a capture, another capture is immediately available for the same piece, the player must continue capturing during that turn until no further captures are possible.
+* When a piece reaches the farthest row on the opponent's side, it is promoted and gains the ability to move and capture diagonally in both forward and backward directions.
+* The game ends when one player has no remaining pieces or has no legal moves available.
+
+Requirements:
+
+* Use semantic HTML.
+* Use modern ES6+ JavaScript.
+* Keep the JavaScript modular with small, well-named functions.
+* Separate game logic from rendering as much as possible.
+* Include comments only where they improve understanding.
+* Do not use any external libraries or frameworks.
+* Do not use images, SVG files, or external assets. Draw everything using HTML and CSS only.
+* Clearly separate initialization, game state, move validation, rendering, player turns, captures, promotions, and win detection into logical functions.
+* Ensure the code is easy to read and suitable for explaining during a code review.
+
+After generating the complete game, produce a comprehensive rulebook describing how to play the game based solely on the implemented mechanics. 
+
+**Images or references:**
+
+None provided

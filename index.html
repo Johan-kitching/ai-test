@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strategy Board Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1>Strategy Board Game</h1>
+        <p class="tagline">
+          A two-player diagonal strategy game on an 8&times;8 board.
+        </p>
+      </header>
+
+      <main class="main">
+        <section
+          class="status-panel"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <h2 class="visually-hidden">Game Status</h2>
+          <p id="turn-indicator" class="turn-indicator">Red to move</p>
+          <p id="message" class="message">Select a piece to begin.</p>
+          <dl class="scoreboard">
+            <div>
+              <dt>Red pieces</dt>
+              <dd id="red-count">12</dd>
+            </div>
+            <div>
+              <dt>Black pieces</dt>
+              <dd id="black-count">12</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="board-section" aria-labelledby="board-heading">
+          <h2 id="board-heading" class="visually-hidden">Game Board</h2>
+          <div
+            id="board"
+            class="board"
+            role="grid"
+            aria-label="8 by 8 game board"
+          ></div>
+        </section>
+
+        <aside class="controls" aria-label="Game controls">
+          <button type="button" id="new-game-btn" class="button">
+            New Game
+          </button>
+          <ul class="legend" aria-label="Piece legend">
+            <li>
+              <span class="legend-piece legend-piece--red" aria-hidden="true"></span>
+              Red (bottom)
+            </li>
+            <li>
+              <span class="legend-piece legend-piece--black" aria-hidden="true"></span>
+              Black (top)
+            </li>
+            <li>
+              <span
+                class="legend-piece legend-piece--red legend-piece--king"
+                aria-hidden="true"
+              ></span>
+              Promoted piece
+            </li>
+          </ul>
+        </aside>
+      </main>
+
+      <footer class="footer">
+        <p>
+          See <a href="RULEBOOK.md">RULEBOOK.md</a> for complete rules based on
+          this implementation.
+        </p>
+      </footer>
+    </div>
+
+    <script src="game.js" defer></script>
+  </body>
+</html>
